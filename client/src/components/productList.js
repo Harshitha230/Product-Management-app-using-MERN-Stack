@@ -16,6 +16,7 @@ export default class ProductList extends Component {
     };
   }
 
+  //load all products on the dashboard
   componentDidMount() {
     axios.get('http://localhost:9000/products/allproducts')
       .then(res => {
@@ -30,6 +31,7 @@ export default class ProductList extends Component {
 
   logout(){
     axios.get('http://localhost:9000/products/logout')
+    //set token to null once user has logged out
     localStorage.setItem('token', null)
     this.props.history.push('/login')
   }
